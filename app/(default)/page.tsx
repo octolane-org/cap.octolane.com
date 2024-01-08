@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Simple",
-  description: "Page description",
+  title: "ByeByeCarta.com",
+  description: "Open Source Cap Table Manager",
 };
 
 import Hero from "@/components/hero-home";
