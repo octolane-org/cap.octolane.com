@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 
+import { cn } from "@/lib/utils/common";
+
 import "./css/style.css";
 
 const inter = Inter({
@@ -21,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}
+        className={cn(
+          "min-h-screen bg-background font-inter antialiased text-gray-900 tracking-tight",
+          inter.variable,
+        )}
       >
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
