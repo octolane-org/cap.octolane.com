@@ -4,6 +4,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Fragment, useEffect } from "react";
 
+import Header from "./components/Header";
+
 export default function DefaultLayout({
   children,
 }: {
@@ -20,6 +22,7 @@ export default function DefaultLayout({
 
   return (
     <Fragment>
+      <Header />
       <main className="grow">{children}</main>
       <footer>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import Logo from "./Logo";
+import Logo from "@/components/Logo";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
