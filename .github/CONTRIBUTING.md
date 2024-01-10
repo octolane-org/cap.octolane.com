@@ -1,6 +1,7 @@
 # Contributing
 
 ## Request for changes/ Pull Requests
+
 You first need to create a fork of the [cap.octolane.com](https://github.com/octolane-org/cap.octolane.com/) repository to commit your changes to it. Methods to fork a repository can be found in the [GitHub Documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 Then add your fork as a local project:
@@ -41,6 +42,7 @@ git remote -v
 ```
 
 ## Receive remote updates
+
 In view of staying up to date with the central repository :
 
 ```sh
@@ -48,14 +50,15 @@ git pull upstream master
 ```
 
 ## Choose a base branch
+
 Before starting development, you need to know which branch to base your modifications/additions on. When in doubt, use master.
 
-| Type of change                |           | Branches              |
-| :------------------           |:---------:| ---------------------:|
-| Documentation                 |           | `master`              |
-| Bug fixes                     |           | `master`              |
-| New features                  |           | `master`              |
-| New issues models             |           | `YOUR-USERNAME:patch` |
+| Type of change    |     |              Branches |
+| :---------------- | :-: | --------------------: |
+| Documentation     |     |              `master` |
+| Bug fixes         |     |              `master` |
+| New features      |     |              `master` |
+| New issues models |     | `YOUR-USERNAME:patch` |
 
 ```sh
 # Switch to the desired branch
