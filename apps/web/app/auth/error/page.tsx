@@ -1,11 +1,13 @@
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import Container from "@/components/Container";
-import { GoogleLoginButton } from "@/components/GoogleLoginButton";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import type { ServerPageProps } from "@/types/common.type";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+
+import Container from "@/components/Container";
+import { GoogleLoginButton } from "@/components/GoogleLoginButton";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
+import type { ServerPageProps } from "@/types/common.type";
 
 const AuthErrorPage = async ({
   searchParams,
