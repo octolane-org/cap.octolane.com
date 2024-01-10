@@ -106,14 +106,6 @@ export default function ModalVideo({
               </g>
             </svg>
           </div>
-          {/* <button
-            className="absolute top-full flex items-center transform  bg-white rounded-full font-medium group p-4 shadow-lg"
-            onClick={() => {
-              setModalOpen(true);
-            }}
-          >
-            <span className="ml-3">Follow progress on Twitter</span>
-          </button> */}
         </div>
       </div>
       {/* End: Video thumbnail */}

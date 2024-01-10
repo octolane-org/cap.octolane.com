@@ -19,7 +19,6 @@ const HomepageContent = () => {
 
   return (
     <section className="relative">
-      {/* Section background (needs .relative class on parent and next sibling elements) */}
       <div
         className="absolute inset-0 bg-gray-100 pointer-events-none mb-16"
         aria-hidden="true"
@@ -144,7 +143,7 @@ const HomepageContent = () => {
                     >
                       <path
                         d="M11.334 8.06a.5.5 0 00-.421-.237 6.023 6.023 0 01-5.905-6c0-.41.042-.82.125-1.221a.5.5 0 00-.614-.586 6 6 0 106.832 8.529.5.5 0 00-.017-.485z"
-                        fill="#191919"
+                        fill="#18181b"
                         fillRule="nonzero"
                       />
                     </svg>

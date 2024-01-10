@@ -32,7 +32,6 @@ export default function Header() {
           </div>
 
           <nav className="hidden md:flex md:grow">
-            {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
                 <Button
@@ -54,8 +53,6 @@ export default function Header() {
               </li>
             </ul>
           </nav>
-
-          {/* <MobileMenu /> */}
         </div>
       </div>
     </header>
