@@ -18,11 +18,17 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  role          String?
 
-  accounts  Account[]
-  sessions  Session[]
-  tokens    Token[]
-  createdAt DateTime  @default(now())
+  company     Company       @relation(fields: [companyId], references: [id])
+  companyId   String
+  accounts    Account[]
+  sessions    Session[]
+  tokens      Token[]
+  createdAt   DateTime      @default(now())
+  Shareholder Shareholder[]
+
+  @@index([companyId])
 }
 
 model Account {
@@ -76,4 +82,70 @@ model Token {
   userId     String
 
   @@index([userId])
+}
+
+model Company {
+  id                String             @id @default(cuid())
+  name              String
+  industry          String?
+  incorporationDate DateTime?
+  users             User[]
+  equityInstruments EquityInstrument[]
+  capTables         CapTable[]
+}
+
+model EquityInstrument {
+  id            Int            @id @default(autoincrement())
+  type          String
+  totalIssued   Int
+  company       Company        @relation(fields: [companyId], references: [id])
+  companyId     String
+  shareholdings Shareholding[]
+
+  @@index([companyId])
+}
+
+model Shareholder {
+  id              Int            @id @default(autoincrement())
+  user            User           @relation(fields: [userId], references: [id])
+  userId          String
+  shareholderType String
+  shareholdings   Shareholding[]
+
+  @@index([userId])
+}
+
+model Shareholding {
+  id              Int              @id @default(autoincrement())
+  shareholder     Shareholder      @relation(fields: [shareholderId], references: [id])
+  shareholderId   Int
+  instrument      EquityInstrument @relation(fields: [instrumentId], references: [id])
+  instrumentId    Int
+  sharesOwned     Int
+  acquisitionDate DateTime
+  transactions    Transaction[]
+
+  @@index([shareholderId])
+  @@index([instrumentId])
+}
+
+model Transaction {
+  id                Int          @id @default(autoincrement())
+  shareholding      Shareholding @relation(fields: [shareholdingId], references: [id])
+  shareholdingId    Int
+  transactionDate   DateTime
+  sharesTransferred Int
+  transactionType   String
+
+  @@index([shareholdingId])
+}
+
+model CapTable {
+  id           Int      @id @default(autoincrement())
+  company      Company  @relation(fields: [companyId], references: [id])
+  companyId    String
+  snapshotDate DateTime
+  // Additional fields as needed
+
+  @@index([companyId])
 }
