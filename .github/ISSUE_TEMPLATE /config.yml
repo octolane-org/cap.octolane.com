@@ -1,1 +1,8 @@
 blank_issues_enabled: false
+contact_links:
+    - name: One Chowdhury
+      url: mailto:one@octolane.com
+      about: CEO & Co-Founder @Octolane AI. Please do NOT use this email to post issues or feature requests (only important business/personal contact).
+    - name: Abdul Halim Rafi
+      url: mailto:rafi@octolane.com
+      about: CTO & Co-Founder @Octolane AI. Please do NOT use this email to post issues or feature requests (only important business/personal contact).
