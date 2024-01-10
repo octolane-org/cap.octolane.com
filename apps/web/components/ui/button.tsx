@@ -1,8 +1,12 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import Link from "next/link";
 import * as React from "react";
 
 import { cn } from "@/lib/utils/common";
+
+import If from "./If";
+import Spinner from "./Spinner";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
@@ -38,20 +42,85 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  block?: boolean;
+  round?: boolean;
+  loading?: boolean;
+  href?: Maybe<string>;
+  target?: Maybe<React.HTMLAttributeAnchorTarget | undefined>;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      href,
+      target,
+      loading,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        <InnerButtonContainerElement
+          href={href}
+          target={target}
+          disabled={props.disabled}
+        >
+          <span
+            className={cn(`flex w-full flex-1 items-center justify-center`)}
+          >
+            <If condition={loading}>
+              <Animation />
+            </If>
+
+            {children}
+          </span>
+        </InnerButtonContainerElement>
+      </Comp>
     );
   },
 );
 Button.displayName = "Button";
+
+function Animation() {
+  return (
+    <span className={"mx-2"}>
+      <Spinner className={"mx-auto !h-4 !w-4 fill-white dark:fill-white"} />
+    </span>
+  );
+}
+
+function InnerButtonContainerElement({
+  children,
+  href,
+  target,
+  disabled,
+}: React.PropsWithChildren<{
+  href: Maybe<string>;
+  target: Maybe<React.HTMLAttributeAnchorTarget | undefined>;
+  disabled?: boolean;
+}>) {
+  const className = `flex w-full h-full items-center transition-transform duration-500 ease-out`;
+
+  if (href && !disabled) {
+    return (
+      <Link className={className} href={href} target={target}>
+        {children}
+      </Link>
+    );
+  }
+
+  return <span className={className}>{children}</span>;
+}
 
 export { Button, buttonVariants };
