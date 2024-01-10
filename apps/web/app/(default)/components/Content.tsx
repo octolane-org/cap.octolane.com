@@ -3,6 +3,8 @@
 import { Transition } from "@headlessui/react";
 import { useEffect, useRef, useState } from "react";
 
+import { Button } from "@/components/ui/button";
+
 const HomepageContent = () => {
   const [tab, setTab] = useState<number>(1);
 
@@ -22,8 +24,8 @@ const HomepageContent = () => {
       <div
         className="absolute inset-0 bg-gray-100 pointer-events-none mb-16"
         aria-hidden="true"
-      ></div>
-      <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2"></div>
+      />
+      <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-12 md:pt-20">
@@ -52,7 +54,7 @@ const HomepageContent = () => {
               </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
-                <button
+                <Button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 1
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
@@ -81,8 +83,8 @@ const HomepageContent = () => {
                       <path d="M11.953 4.29a.5.5 0 00-.454-.292H6.14L6.984.62A.5.5 0 006.12.173l-6 7a.5.5 0 00.379.825h5.359l-.844 3.38a.5.5 0 00.864.445l6-7a.5.5 0 00.075-.534z" />
                     </svg>
                   </div>
-                </button>
-                <button
+                </Button>
+                <Button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 2
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
@@ -114,8 +116,8 @@ const HomepageContent = () => {
                       />
                     </svg>
                   </div>
-                </button>
-                <button
+                </Button>
+                <Button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 3
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
@@ -148,7 +150,7 @@ const HomepageContent = () => {
                       />
                     </svg>
                   </div>
-                </button>
+                </Button>
               </div>
             </div>
 

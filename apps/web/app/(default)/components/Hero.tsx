@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 import VideoThumb from "@/public/images/hero-image-01.svg";
 
 import ModalVideo from "./ModalVideo";
@@ -66,20 +68,15 @@ const HomepageHero = () => {
                   Octolane AI
                 </a>
               </p>
-              <div
+              <Button
+                href="https://jl1zzmzlaee.typeform.com/to/Fbf4XlNu"
+                target="_blank"
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
                 data-aos="zoom-y-out"
                 data-aos-delay="300"
               >
-                <div>
-                  <a
-                    className="btn text-white text-bold bg-gradient-to-r from-zinc-900 to-zinc-800 w-full mb-4 sm:w-auto sm:mb-0"
-                    href="https://jl1zzmzlaee.typeform.com/to/Fbf4XlNu"
-                  >
-                    Get Access Fast
-                  </a>
-                </div>
-              </div>
+                Get Access Fast
+              </Button>
             </div>
           </div>
 
