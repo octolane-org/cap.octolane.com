@@ -58,7 +58,9 @@ export default function Footer() {
           </ul>
 
           {/* Copyrights note */}
-          <div className="text-sm text-gray-600 mr-4">&copy; No copyright! Absolutely free for public use.</div>
+          <div className="text-sm text-gray-600 mr-4">
+            &copy; No copyright! Absolutely free for public use.
+          </div>
         </div>
       </div>
     </footer>

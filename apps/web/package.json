@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently --kill-others \"prisma generate && next dev --port 8888\" \"prisma studio --browser none\"",
+    "build": "prisma generate & next build",
+    "format:write": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\"",
+    "format": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\"",
+    "lint": "next lint",
     "start": "next start",
-    "lint": "next lint"
+    "script": "tsx ./scripts/run.ts"
   },
   "overrides": {
     "next-contentlayer": {
@@ -31,6 +34,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/aos": "^3.0.7",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",

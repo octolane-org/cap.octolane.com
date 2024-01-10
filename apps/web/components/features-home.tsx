@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { Transition } from "@headlessui/react";
-import Image from "next/image";
-import TopImage from "@/public/images/features-top-image.png";
 import FeaturesBg01 from "@/public/images/features-home-bg-01.png";
 import FeaturesElement01 from "@/public/images/features-home-element-01.png";
 import FeaturesElement02 from "@/public/images/features-home-element-02.png";
 import FeaturesElement03 from "@/public/images/features-home-element-03.png";
+import TopImage from "@/public/images/features-top-image.png";
+import { Transition } from "@headlessui/react";
+import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 export default function FeaturesHome() {
   const [tab, setTab] = useState<number>(1);
@@ -38,7 +38,8 @@ export default function FeaturesHome() {
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1 className="h2 mb-4">Open Source Cap Table Management</h1>
             <p className="text-xl text-gray-600">
-              Explore the power of open-source solutions for managing your company's equity with precision and ease.
+              Explore the power of open-source solutions for managing your
+              company's equity with precision and ease.
             </p>
           </div>
 
@@ -52,26 +53,30 @@ export default function FeaturesHome() {
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                 <h3 className="h3 mb-3">Streamlined Equity Management</h3>
                 <p className="text-xl text-gray-600">
-                  Harness the efficiency of real-time cap table updates and error-free equity tracking for your
-                  business.
+                  Harness the efficiency of real-time cap table updates and
+                  error-free equity tracking for your business.
                 </p>
               </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
                 <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
-                    tab !== 1 ? "bg-white shadow-md border-gray-200 hover:shadow-lg" : "bg-gray-200 border-transparent"
+                    tab !== 1
+                      ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
+                      : "bg-gray-200 border-transparent"
                   }`}
-                  onClick={(e) => {
+                  onClick={e => {
                     e.preventDefault();
                     setTab(1);
                   }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Error-Free Updates</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">
+                      Error-Free Updates
+                    </div>
                     <div className="text-gray-600">
-                      Automated processes ensure your cap table remains accurate and up-to-date, eliminating
-                      reconciliation worries.
+                      Automated processes ensure your cap table remains accurate
+                      and up-to-date, eliminating reconciliation worries.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
@@ -86,18 +91,22 @@ export default function FeaturesHome() {
                 </button>
                 <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
-                    tab !== 2 ? "bg-white shadow-md border-gray-200 hover:shadow-lg" : "bg-gray-200 border-transparent"
+                    tab !== 2
+                      ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
+                      : "bg-gray-200 border-transparent"
                   }`}
-                  onClick={(e) => {
+                  onClick={e => {
                     e.preventDefault();
                     setTab(2);
                   }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Collaborative Environment</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">
+                      Collaborative Environment
+                    </div>
                     <div className="text-gray-600">
-                      Facilitate seamless collaboration among stakeholders with shared access and transparent equity
-                      management.
+                      Facilitate seamless collaboration among stakeholders with
+                      shared access and transparent equity management.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
@@ -115,17 +124,22 @@ export default function FeaturesHome() {
                 </button>
                 <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
-                    tab !== 3 ? "bg-white shadow-md border-gray-200 hover:shadow-lg" : "bg-gray-200 border-transparent"
+                    tab !== 3
+                      ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
+                      : "bg-gray-200 border-transparent"
                   }`}
-                  onClick={(e) => {
+                  onClick={e => {
                     e.preventDefault();
                     setTab(3);
                   }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Transparent Processes</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">
+                      Transparent Processes
+                    </div>
                     <div className="text-gray-600">
-                      Our open-source approach ensures transparency in every aspect of your cap table management.
+                      Our open-source approach ensures transparency in every
+                      aspect of your cap table management.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">

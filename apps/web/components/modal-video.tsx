@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useRef, Fragment } from "react";
-import type { StaticImageData } from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
+import type { StaticImageData } from "next/image";
 import Image from "next/image";
+import { useState, useRef, Fragment } from "react";
 
 interface ModalVideoProps {
   thumb: StaticImageData;
@@ -59,18 +59,9 @@ export default function ModalVideo({
                   y2="100%"
                   id="hero-ill-a"
                 >
-                  <stop
-                    stopColor="#FFF"
-                    offset="0%"
-                  />
-                  <stop
-                    stopColor="#EAEAEA"
-                    offset="77.402%"
-                  />
-                  <stop
-                    stopColor="#DFDFDF"
-                    offset="100%"
-                  />
+                  <stop stopColor="#FFF" offset="0%" />
+                  <stop stopColor="#EAEAEA" offset="77.402%" />
+                  <stop stopColor="#DFDFDF" offset="100%" />
                 </linearGradient>
                 <linearGradient
                   x1="50%"
@@ -79,19 +70,9 @@ export default function ModalVideo({
                   y2="99.24%"
                   id="hero-ill-b"
                 >
-                  <stop
-                    stopColor="#FFF"
-                    offset="0%"
-                  />
-                  <stop
-                    stopColor="#EAEAEA"
-                    offset="48.57%"
-                  />
-                  <stop
-                    stopColor="#DFDFDF"
-                    stopOpacity="0"
-                    offset="100%"
-                  />
+                  <stop stopColor="#FFF" offset="0%" />
+                  <stop stopColor="#EAEAEA" offset="48.57%" />
+                  <stop stopColor="#DFDFDF" stopOpacity="0" offset="100%" />
                 </linearGradient>
                 <radialGradient
                   cx="21.152%"
@@ -101,30 +82,13 @@ export default function ModalVideo({
                   r="79.941%"
                   id="hero-ill-e"
                 >
-                  <stop
-                    stopColor="#4FD1C5"
-                    offset="0%"
-                  />
-                  <stop
-                    stopColor="#81E6D9"
-                    offset="25.871%"
-                  />
-                  <stop
-                    stopColor="#338CF5"
-                    offset="100%"
-                  />
+                  <stop stopColor="#4FD1C5" offset="0%" />
+                  <stop stopColor="#81E6D9" offset="25.871%" />
+                  <stop stopColor="#338CF5" offset="100%" />
                 </radialGradient>
-                <circle
-                  id="hero-ill-d"
-                  cx="384"
-                  cy="216"
-                  r="64"
-                />
+                <circle id="hero-ill-d" cx="384" cy="216" r="64" />
               </defs>
-              <g
-                fill="none"
-                fillRule="evenodd"
-              >
+              <g fill="none" fillRule="evenodd">
                 <circle
                   fillOpacity=".04"
                   fill="url(#hero-ill-a)"
@@ -159,10 +123,7 @@ export default function ModalVideo({
         as={Fragment}
         afterEnter={() => videoRef.current?.play()}
       >
-        <Dialog
-          initialFocus={videoRef}
-          onClose={() => setModalOpen(false)}
-        >
+        <Dialog initialFocus={videoRef} onClose={() => setModalOpen(false)}>
           {/* Modal backdrop */}
           <Transition.Child
             className="fixed inset-0 z-[99999] bg-black bg-opacity-75 transition-opacity"
@@ -195,10 +156,7 @@ export default function ModalVideo({
                   loop
                   controls
                 >
-                  <source
-                    src={video}
-                    type="video/mp4"
-                  />
+                  <source src={video} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </Dialog.Panel>
