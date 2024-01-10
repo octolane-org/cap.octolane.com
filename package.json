@@ -1,8 +1,6 @@
 {
   "name": "octolane-cap-monorepo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/octolane-org/cap.octolane.com/issues"
   },
-  "homepage": "https://github.com/octolane-org/cap.octolane.com#readme"
+  "homepage": "https://github.com/octolane-org/cap.octolane.com#readme",
+  "devDependencies": {
+    "eslint": "8.56.0",
+    "prettier": "3.1.1",
+    "prettier-plugin-organize-imports": "3.2.4",
+    "prettier-plugin-tailwindcss": "0.5.11",
+    "turbo": "1.11.3"
+  },
+  "packageManager": "pnpm@8.6.10"
 }
