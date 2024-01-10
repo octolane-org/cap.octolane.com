@@ -1,8 +1,8 @@
-import ModalVideo from "@/components/modal-video";
-
 import VideoThumb from "@/public/images/hero-image-01.svg";
 
-export default function HeroHome() {
+import ModalVideo from "./ModalVideo";
+
+const HomepageHero = () => {
   return (
     <section className="relative">
       {/* Illustration behind hero content */}
@@ -97,4 +97,6 @@ export default function HeroHome() {
       </div>
     </section>
   );
-}
+};
+
+export default HomepageHero;

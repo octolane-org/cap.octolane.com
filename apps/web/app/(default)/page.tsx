@@ -1,9 +1,9 @@
-import Cta from "@/components/cta";
-import FeaturesBlocks from "@/components/features-blocks";
-import Features from "@/components/features-home";
-import FeaturesWorld from "@/components/features-world";
-import Hero from "@/components/hero-home";
-import News from "@/components/news";
+"use client";
+
+import { Fragment } from "react";
+
+import HomepageContent from "./components/Content";
+import HomepageHero from "./components/Hero";
 
 export const metadata = {
   title: "ByeByeCarta.com",
@@ -12,13 +12,9 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <Features />
-      {/* <FeaturesBlocks />
-      <FeaturesWorld />
-      <News />
-      <Cta /> */}
-    </>
+    <Fragment>
+      <HomepageHero />
+      <HomepageContent />
+    </Fragment>
   );
 }

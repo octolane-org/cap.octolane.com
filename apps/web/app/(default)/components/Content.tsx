@@ -1,15 +1,9 @@
 "use client";
 
-import FeaturesBg01 from "@/public/images/features-home-bg-01.png";
-import FeaturesElement01 from "@/public/images/features-home-element-01.png";
-import FeaturesElement02 from "@/public/images/features-home-element-02.png";
-import FeaturesElement03 from "@/public/images/features-home-element-03.png";
-import TopImage from "@/public/images/features-top-image.png";
 import { Transition } from "@headlessui/react";
-import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function FeaturesHome() {
+const HomepageContent = () => {
   const [tab, setTab] = useState<number>(1);
 
   const tabs = useRef<HTMLDivElement>(null);
@@ -232,4 +226,6 @@ export default function FeaturesHome() {
       </div>
     </section>
   );
-}
+};
+
+export default HomepageContent;

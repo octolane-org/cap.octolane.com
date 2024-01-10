@@ -3,7 +3,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
-import { useState, useRef, Fragment } from "react";
+import { Fragment, useRef, useState } from "react";
 
 interface ModalVideoProps {
   thumb: StaticImageData;
