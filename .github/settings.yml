@@ -1,0 +1,82 @@
+repository:
+# Labels: define labels for Issues and Pull Requests
+labels:
+    - name: 'Type: Bug'
+      color: e80c0c
+      description: Something isn't working as expected.
+
+    - name: 'Type: Enhancement'
+      color: 54b2ff
+      description: Suggest an improvement for an existing feature.
+
+    - name: 'Type: Feature'
+      color: 54b2ff
+      description: Suggest a new feature.
+
+    - name: 'Type: Security'
+      color: fbff00
+      description: A problem or enhancement related to a security issue.
+
+    - name: 'Type: Question'
+      color: 9309ab
+      description: Request for information.
+
+    - name: 'Type: Test'
+      color: ce54e3
+      description: A problem or enhancement related to a test.
+
+    - name: 'Status: Awaiting Review'
+      color: 24d15d
+      description: Ready for review.
+
+    - name: 'Status: WIP'
+      color: 07b340
+      description: Currently being worked on.
+
+    - name: 'Status: Waiting'
+      color: 38C968
+      description: Waiting on something else to be ready.
+
+    - name: 'Status: Stale'
+      color: 66b38a
+      description: Has had no activity for some time.
+
+    - name: 'Duplicate'
+      color: EB862D
+      description: Duplicate of another issue.
+
+    - name: 'Invalid'
+      color: faef50
+      description: This issue doesn't seem right.
+
+    - name: 'Priority: High +'
+      color: ff008c
+      description: Task is considered higher-priority.
+
+    - name: 'Priority: Low -'
+      color: 690a34
+      description: Task is considered lower-priority.
+
+    - name: 'Documentation'
+      color: 2fbceb
+      description: An issue/change with the documentation.
+
+    - name: "Won't fix"
+      color: C8D9E6
+      description: Reported issue is working as intended.
+
+    - name: '3rd party issue'
+      color: e88707
+      description: This issue might be caused by a 3rd party script/package/other reasons
+
+    - name: 'Os: Windows'
+      color: AEB1C2
+      description: Is Windows-specific
+
+    - name: 'Os: Mac'
+      color: AEB1C2
+      description: Is Mac-specific
+
+    - name: 'Os: Linux'
+      color: AEB1C2
+      description: Is Linux-specific

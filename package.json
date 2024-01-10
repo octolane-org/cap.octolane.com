@@ -1,39 +1,40 @@
 {
-  "name": "simple-next",
-  "version": "0.1.0",
-  "private": true,
+  "name": "octolane-cap-monorepo",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "clean": "turbo clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "publish-tw": "turbo build --filter='@dub/tailwind-config' && cd packages/tailwind-config && npm publish && cd ../../",
+    "publish-ui": "turbo build --filter='@dub/ui' && cd packages/ui && npm publish && cd ../../",
+    "publish-utils": "turbo build --filter='@dub/utils' && cd packages/utils && npm publish && cd ../../",
+    "script": "echo 'Run this script in apps/web'",
+    "prepare": "husky install && chmod +x .husky/pre-push && chmod +x .husky/pre-commit"
   },
-  "overrides": {
-    "next-contentlayer": {
-      "next": "$next"
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octolane-org/cap.octolane.com.git"
   },
-  "dependencies": {
-    "@headlessui/react": "^1.7.17",
-    "@types/node": "^20.10.4",
-    "@types/react": "^18.2.42",
-    "@types/react-dom": "^18.2.17",
-    "aos": "^3.0.0-beta.6",
-    "contentlayer": "^0.3.2",
-    "date-fns": "^2.30.0",
-    "next": "^14.0.3",
-    "next-contentlayer": "^0.3.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rehype-slug": "^6.0.0",
-    "typescript": "^5.3.3"
+  "keywords": [
+    "Captable"
+  ],
+  "author": "octolane-org",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/octolane-org/cap.octolane.com/issues"
   },
+  "homepage": "https://github.com/octolane-org/cap.octolane.com#readme",
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/aos": "^3.0.7",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6"
+    "eslint": "8.56.0",
+    "prettier": "3.1.1",
+    "prettier-plugin-organize-imports": "3.2.4",
+    "prettier-plugin-tailwindcss": "0.5.11",
+    "turbo": "1.11.3"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "dependencies": {
+    "husky": "8.0.3"
   }
 }
