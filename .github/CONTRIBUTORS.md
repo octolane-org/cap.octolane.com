@@ -1,6 +1,7 @@
 > ## ProTips:
+>
 > This is maybe the most important file of your project if you think about maintanability and long-term support. It recognizes people who are helping you and, directly or indirectly, baking your/your project success.
-> 
+>
 > Those people spend their time, for free, to make your project better. You should, by all means, praise and thank them whenever you want. Time is an asset that never comes back, so if people choose to use their time with your code, this file shows them the respect they want.
 
 # Contributors
