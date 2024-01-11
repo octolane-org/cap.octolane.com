@@ -7,47 +7,42 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-type EquityPlan = {
+import { formatCurrency } from "@/lib/utils/common";
+
+type OptionCapTable = {
   id: string;
-  name: string;
-  status: string;
-  boardApproval: string;
-  shareSize: number;
-  shareRetireSize: number;
-  termOfPlan: string;
+  certificateName: string;
+  stakeholderName: string;
+  shareClassName: string;
+  issuedOn: string;
+  fullyDiluted: number;
   ownership: number;
+  pricePerShare: number | null;
+  excercisePrice: number;
 };
 
-const mockEquityPlans: EquityPlan[] = [
+const mockOptionsData: OptionCapTable[] = [
   {
     id: "1",
-    name: "EQ1",
-    status: "Outstanding",
-    boardApproval: "Jan 23, 2024",
-    shareSize: 1000,
-    shareRetireSize: 100,
-    termOfPlan: "10 years",
+    certificateName: "OPT-1",
+    stakeholderName: "John Doe",
+    shareClassName: "Common",
+    issuedOn: "1/1/2020",
+    fullyDiluted: 1000,
     ownership: 100,
+    pricePerShare: 1,
+    excercisePrice: 100,
   },
   {
     id: "2",
-    name: "EQ2",
-    status: "Outstanding",
-    boardApproval: "Jan 23, 2024",
-    shareSize: 1000,
-    shareRetireSize: 100,
-    termOfPlan: "10 years",
+    certificateName: "OPT-1",
+    stakeholderName: "Jane Doe",
+    shareClassName: "Common",
+    issuedOn: "1/1/2020",
+    fullyDiluted: 1000,
     ownership: 100,
-  },
-  {
-    id: "3",
-    name: "EQ3",
-    status: "Outstanding",
-    boardApproval: "Jan 23, 2024",
-    shareSize: 1000,
-    shareRetireSize: 100,
-    termOfPlan: "10 years",
-    ownership: 100,
+    pricePerShare: 1,
+    excercisePrice: 1500,
   },
 ];
 
@@ -56,28 +51,33 @@ const EquityPlansTable = () => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Name</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Board Approval</TableHead>
-          <TableHead className="text-right">Plan Size</TableHead>
-          <TableHead className="text-right">Term of Plan</TableHead>
+          <TableHead className="w-[100px]">Certificate</TableHead>
+          <TableHead>Stakeholder</TableHead>
+          <TableHead>Share Class</TableHead>
+          <TableHead className="text-right">Issued On</TableHead>
+          <TableHead className="text-right">Fully Diluted</TableHead>
           <TableHead className="text-right">Ownership</TableHead>
+          <TableHead className="text-right">Price/Share</TableHead>
+          <TableHead className="text-right">Excercise Price</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {mockEquityPlans.map(plan => (
+        {mockOptionsData.map(plan => (
           <TableRow key={plan.id}>
-            <TableCell className="font-medium">{plan.name}</TableCell>
-            <TableCell>{plan.status}</TableCell>
-            <TableCell>{plan.boardApproval}</TableCell>
-            <TableCell className="text-right">
-              <p className="text-sm">{plan.shareSize} shares</p>
-              <p className="text-xs">
-                {plan.shareSize - plan.shareRetireSize} available
-              </p>
+            <TableCell className="font-medium">
+              {plan.certificateName}
             </TableCell>
-            <TableCell className="text-right">{plan.termOfPlan}</TableCell>
+            <TableCell>{plan.stakeholderName}</TableCell>
+            <TableCell>{plan.shareClassName}</TableCell>
+            <TableCell className="text-right">{plan.issuedOn}</TableCell>
+            <TableCell className="text-right">{plan.fullyDiluted}</TableCell>
             <TableCell className="text-right">{plan.ownership}%</TableCell>
+            <TableCell className="text-right">
+              {plan.pricePerShare ? formatCurrency(plan.pricePerShare) : "--"}
+            </TableCell>
+            <TableCell className="text-right">
+              {formatCurrency(plan.excercisePrice)}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
