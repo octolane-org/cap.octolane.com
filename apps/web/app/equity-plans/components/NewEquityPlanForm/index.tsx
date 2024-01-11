@@ -15,17 +15,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
-const formSchema = z.object({
+import ShareClassSelect from "./ShareClassSelect";
+
+export const newEquityPlanFormSchema = z.object({
   name: z.string().min(2).max(50),
-  shareClass: z.string().min(2).max(50),
+  shareClass: z.string(),
   initialPlanSize: z.number().min(1).max(1000000000),
   termsOfYears: z.number().min(1).max(100),
   equityRetired: z.number().min(1).max(1000000000),
@@ -57,8 +52,8 @@ const formSchema = z.object({
 });
 
 const NewEquityPlanForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof newEquityPlanFormSchema>>({
+    resolver: zodResolver(newEquityPlanFormSchema),
     defaultValues: {
       name: "",
       shareClass: "Common",
@@ -93,7 +88,7 @@ const NewEquityPlanForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof newEquityPlanFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
@@ -118,28 +113,7 @@ const NewEquityPlanForm = () => {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Share Class</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <ShareClassSelect control={form.control} />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
