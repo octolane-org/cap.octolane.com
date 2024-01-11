@@ -5,7 +5,7 @@ export const newOptionsFormSchema = z.object({
   signedDocuments: z.array(z.string()),
   isEarlyExercise: z.boolean(),
 
-  stakeholderName: z.string().min(3),
+  stakeholderId: z.string().min(1),
   quantity: z.number().min(1),
   exercisePrice: z.number().min(0.0001),
   issuedOn: z.date(),

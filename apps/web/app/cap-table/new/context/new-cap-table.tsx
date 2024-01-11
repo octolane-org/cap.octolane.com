@@ -19,7 +19,7 @@ export const NewCapTableProvider: React.FCC = ({ children }) => {
       signedDocuments: [],
       isEarlyExercise: false,
 
-      stakeholderName: "",
+      stakeholderId: "",
       quantity: 0,
       exercisePrice: 0.0001,
       issuedOn: new Date(),
