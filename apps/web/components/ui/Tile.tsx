@@ -5,22 +5,25 @@ import {
 } from "@heroicons/react/24/outline";
 import { useMemo } from "react";
 
+import { cn } from "@/lib/utils/common";
+
 import Heading from "./Heading";
 
-const Tile: React.FCC & {
+const Tile: React.FCC<{ className?: string }> & {
   Header: typeof TileHeader;
   Heading: typeof TileHeading;
   Body: typeof TileBody;
   Figure: typeof TileFigure;
   Trend: typeof TileTrend;
   Badge: typeof TileBadge;
-} = ({ children }) => {
+} = ({ children, className }) => {
   return (
     <div
-      className={
+      className={cn(
         "flex flex-col space-y-3 rounded-lg border border-gray-100" +
-        " dark:border-dark-900 bg-background p-5"
-      }
+          " dark:border-dark-900 bg-background p-5",
+        className,
+      )}
     >
       {children}
     </div>

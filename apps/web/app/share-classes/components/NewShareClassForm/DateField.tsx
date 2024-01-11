@@ -20,7 +20,7 @@ import {
 
 import { cn } from "@/lib/utils/common";
 
-import { newEquityPlanFormSchema } from ".";
+import { newShareClassFormSchema } from "./";
 
 const DateField = ({
   control,
@@ -30,8 +30,8 @@ const DateField = ({
 }: {
   label: string;
   placeholder?: string;
-  name: keyof z.infer<typeof newEquityPlanFormSchema>;
-  control: Control<z.infer<typeof newEquityPlanFormSchema>>;
+  name: keyof z.infer<typeof newShareClassFormSchema>;
+  control: Control<z.infer<typeof newShareClassFormSchema>>;
 }) => {
   return (
     <FormField
