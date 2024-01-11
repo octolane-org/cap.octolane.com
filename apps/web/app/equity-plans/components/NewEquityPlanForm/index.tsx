@@ -16,7 +16,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
+import EquityRetired from "./EquityRetired";
+import InitialPlanSize from "./InitialPlanSize";
 import ShareClassSelect from "./ShareClassSelect";
+import TermsOfPlan from "./TermsOfPlan";
 
 export const newEquityPlanFormSchema = z.object({
   name: z.string().min(2).max(50),
@@ -114,6 +117,9 @@ const NewEquityPlanForm = () => {
           )}
         />
         <ShareClassSelect control={form.control} />
+        <InitialPlanSize control={form.control} />
+        <TermsOfPlan control={form.control} />
+        <EquityRetired control={form.control} />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
