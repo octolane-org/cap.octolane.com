@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 
 import { cn } from "@/lib/utils/common";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           inter.variable,
         )}
       >
+        <Toaster richColors />
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>

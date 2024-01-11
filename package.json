@@ -11,6 +11,7 @@
     "publish-ui": "turbo build --filter='@dub/ui' && cd packages/ui && npm publish && cd ../../",
     "publish-utils": "turbo build --filter='@dub/utils' && cd packages/utils && npm publish && cd ../../",
     "script": "echo 'Run this script in apps/web'",
+    "docker:start": "docker-compose up -d",
     "prepare": "husky install && chmod +x .husky/pre-push && chmod +x .husky/pre-commit"
   },
   "repository": {

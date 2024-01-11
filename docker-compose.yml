@@ -1,0 +1,16 @@
+version: "3.7"
+name: octolane-cap-table
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: postgres
+    mem_limit: 1g
+    ports:
+      - 5431:5432
+    environment:
+      POSTGRES_PASSWORD: randompassword
+      POSTGRES_DB: captable
+      POSTGRES_USER: username
+    volumes:
+      - /var/lib/postgresql/octolane-cap-table/data:/var/lib/postgresql/data
