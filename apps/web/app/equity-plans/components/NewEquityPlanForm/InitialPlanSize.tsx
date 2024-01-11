@@ -25,7 +25,12 @@ const InitialPlanSize = ({
         <FormItem>
           <FormLabel>Initial Plan Size (Shares)</FormLabel>
           <FormControl>
-            <Input placeholder="" {...field} />
+            <Input
+              placeholder=""
+              {...field}
+              type="number"
+              onChange={e => field.onChange(Number(e.target.value))}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>

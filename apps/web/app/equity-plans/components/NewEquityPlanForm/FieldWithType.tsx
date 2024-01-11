@@ -1,3 +1,4 @@
+import { HTMLInputTypeAttribute } from "react";
 import { Control } from "react-hook-form";
 import * as z from "zod";
 
@@ -21,6 +22,7 @@ import { newEquityPlanFormSchema } from "./index";
 
 type Props = {
   label: string;
+  type?: HTMLInputTypeAttribute;
   nameOfValue: keyof z.infer<typeof newEquityPlanFormSchema>;
   nameOfValueType: keyof z.infer<typeof newEquityPlanFormSchema>;
   control: Control<z.infer<typeof newEquityPlanFormSchema>>;
@@ -33,6 +35,7 @@ type Props = {
 const FieldWithType = ({
   label,
   control,
+  type = "text",
   nameOfValue,
   nameOfValueType,
   typeOptions,
@@ -47,7 +50,18 @@ const FieldWithType = ({
           render={({ field }) => (
             <FormItem className="flex-grow">
               <FormControl>
-                <Input {...field} value={field.value as string} />
+                <Input
+                  {...field}
+                  type={type}
+                  value={field.value as string}
+                  onChange={e => {
+                    const isNumber = type === "number";
+                    const value = isNumber
+                      ? Number(e.target.value)
+                      : e.target.value;
+                    field.onChange(value);
+                  }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

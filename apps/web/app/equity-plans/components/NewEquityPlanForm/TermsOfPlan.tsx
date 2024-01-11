@@ -25,7 +25,12 @@ const TermsOfPlan = ({
         <FormItem>
           <FormLabel>Term of Plan (years)</FormLabel>
           <FormControl>
-            <Input placeholder="" {...field} />
+            <Input
+              placeholder=""
+              {...field}
+              type="number"
+              onChange={e => field.onChange(Number(e.target.value))}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>

@@ -1,8 +1,12 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
+
+import { configuration } from "@/core/constants/configs";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -64,6 +68,8 @@ const periodOptions = [
 ];
 
 const NewEquityPlanForm = () => {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof newEquityPlanFormSchema>>({
     resolver: zodResolver(newEquityPlanFormSchema),
     defaultValues: {
@@ -101,9 +107,8 @@ const NewEquityPlanForm = () => {
   });
 
   function onSubmit(values: z.infer<typeof newEquityPlanFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    toast.success("Share Class Created!");
+    router.push(configuration.paths.equityPlans.all);
   }
 
   return (
@@ -144,6 +149,7 @@ const NewEquityPlanForm = () => {
           nameOfValue="purchasePeriod"
           nameOfValueType="purchasePeriodType"
           control={form.control}
+          type="number"
           typeOptions={periodOptions}
         />
         <FormField

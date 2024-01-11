@@ -25,7 +25,12 @@ const EquityRetired = ({
         <FormItem>
           <FormLabel>Equity Retired</FormLabel>
           <FormControl>
-            <Input placeholder="" {...field} />
+            <Input
+              placeholder=""
+              {...field}
+              type="number"
+              onChange={e => field.onChange(Number(e.target.value))}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
