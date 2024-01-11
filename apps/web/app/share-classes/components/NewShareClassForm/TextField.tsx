@@ -39,6 +39,13 @@ const TextField = ({
               {...field}
               type={type}
               value={field.value as string}
+              onChange={e => {
+                const isNumber = type === "number";
+                const value = isNumber
+                  ? Number(e.target.value)
+                  : e.target.value;
+                field.onChange(value);
+              }}
             />
           </FormControl>
           <FormMessage />

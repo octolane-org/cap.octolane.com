@@ -15,6 +15,8 @@ const Information = ({
 }) => {
   return (
     <Tile>
+      <h3 className="text-lg font-semibold">2. Share Class Information</h3>
+
       <TextField control={control} name="name" label="Share Class Name" />
       <TextField control={control} name="prefix" label="Share Class Prefix" />
       <TextField

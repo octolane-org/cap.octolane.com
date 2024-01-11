@@ -6,7 +6,7 @@ import NewShareClassForm from "../components/NewShareClassForm";
 const NewEquityPlanPage = async () => {
   return (
     <div className="h-full min-h-svh my-8 flex flex-col items-center gap-8">
-      <Container className="max-w-xl">
+      <Container className="max-w-3xl">
         <Tile>
           <h1 className="text-2xl font-bold">Add Share Class</h1>
           <p className="text-xs text-zinc-600">

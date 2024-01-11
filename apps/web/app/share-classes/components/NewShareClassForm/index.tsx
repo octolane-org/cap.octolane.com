@@ -1,12 +1,17 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
+
+import { configuration } from "@/core/constants/configs";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 
+import AdvancedSettings from "./AdvancedSettings";
 import ClassType from "./ClassType";
 import Information from "./Information";
 
@@ -19,9 +24,9 @@ export const newShareClassFormSchema = z.object({
   // Share Class Information
   name: z.string().min(1),
   prefix: z.string(),
-  authorizedShares: z.number().min(1),
-  pricePerShare: z.number().min(0),
-  parValue: z.number().min(0),
+  authorizedShares: z.number(),
+  pricePerShare: z.number(),
+  parValue: z.number(),
   stockholderApprovalDate: z.date(),
   boardApprovalDate: z.date(),
   dividends: z.enum(["Cumulative", "Non-Cumulative"]),
@@ -33,6 +38,8 @@ export const newShareClassFormSchema = z.object({
 });
 
 const NewEquityPlanForm = () => {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof newShareClassFormSchema>>({
     resolver: zodResolver(newShareClassFormSchema),
     defaultValues: {
@@ -58,9 +65,8 @@ const NewEquityPlanForm = () => {
   });
 
   function onSubmit(values: z.infer<typeof newShareClassFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    toast.success("Share Class Created!");
+    router.push(configuration.paths.shareClasses.all);
   }
 
   return (
@@ -68,7 +74,12 @@ const NewEquityPlanForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-5 space-y-8">
         <ClassType control={form.control} />
         <Information control={form.control} />
-        <Button type="submit">Submit</Button>
+        <AdvancedSettings form={form} />
+        <div className="flex justify-end">
+          <Button type="submit" className="max-w-xs w-full">
+            Submit
+          </Button>
+        </div>
       </form>
     </Form>
   );
