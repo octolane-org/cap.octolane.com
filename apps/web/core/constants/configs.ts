@@ -37,6 +37,7 @@ export const configuration = {
     signin: "/signin",
     signup: "/signup",
     equityPlans: { all: "/equity-plans", new: "/equity-plans/new" },
+    shareClasses: { all: "/share-classes", new: "/share-classes/new" },
   },
 };
 
