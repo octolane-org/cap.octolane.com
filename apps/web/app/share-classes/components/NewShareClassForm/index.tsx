@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 
 import ClassType from "./ClassType";
+import Information from "./Information";
 
 export const newShareClassFormSchema = z.object({
   // Class Type
@@ -66,6 +67,7 @@ const NewEquityPlanForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-5 space-y-8">
         <ClassType control={form.control} />
+        <Information control={form.control} />
         <Button type="submit">Submit</Button>
       </form>
     </Form>

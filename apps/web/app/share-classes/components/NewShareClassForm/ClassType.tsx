@@ -7,12 +7,11 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Switch } from "@/components/ui/switch";
 
 import { newShareClassFormSchema } from ".";
+import RadioGroupField from "./RadioGroupField";
 
 const ClassType = ({
   control,
@@ -22,35 +21,20 @@ const ClassType = ({
   return (
     <Tile>
       <h3 className="text-lg font-semibold">1. Select Class Type</h3>
-      <FormField
+      <RadioGroupField
         control={control}
+        label="Share Class Type"
         name="classType"
-        render={({ field }) => (
-          <FormItem className="space-y-3">
-            <FormLabel>Share Class Type</FormLabel>
-            <FormControl>
-              <RadioGroup
-                onValueChange={field.onChange}
-                defaultValue={field.value}
-                className="flex gap-6"
-              >
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="Common" />
-                  </FormControl>
-                  <FormLabel className="font-normal">Common</FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="Preferred" />
-                  </FormControl>
-                  <FormLabel className="font-normal">Preferred</FormLabel>
-                </FormItem>
-              </RadioGroup>
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
+        options={[
+          {
+            value: "Common",
+            label: "Common",
+          },
+          {
+            value: "Preferred",
+            label: "Preferred",
+          },
+        ]}
       />
 
       <FormField
