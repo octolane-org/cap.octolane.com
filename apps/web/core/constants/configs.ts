@@ -36,6 +36,7 @@ export const configuration = {
     dashbord: "/dashboard",
     signin: "/signin",
     signup: "/signup",
+    equityPlans: { all: "/equity-plans", new: "/equity-plans/new" },
   },
 };
 

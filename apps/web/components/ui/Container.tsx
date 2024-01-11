@@ -1,5 +1,12 @@
-const Container: React.FCC = ({ children }) => {
-  return <div className="container mx-auto px-5">{children}</div>;
+import { cn } from "@/lib/utils/common";
+
+const Container: React.FCC<{ className?: string }> = ({
+  children,
+  className,
+}) => {
+  return (
+    <div className={cn("container mx-auto px-5", className)}>{children}</div>
+  );
 };
 
 export default Container;
