@@ -1,4 +1,4 @@
-import { nextAuthOptions } from "@/app/api/[...nextauth]/options";
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { HttpStatusCode } from "axios";
 import { getServerSession } from "next-auth";
 

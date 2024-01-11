@@ -20,8 +20,8 @@ model User {
   image         String?
   role          String?
 
-  company     Company       @relation(fields: [companyId], references: [id])
-  companyId   String
+  company     Company?      @relation(fields: [companyId], references: [id])
+  companyId   String?
   accounts    Account[]
   sessions    Session[]
   tokens      Token[]
