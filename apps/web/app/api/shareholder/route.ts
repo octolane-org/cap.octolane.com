@@ -3,6 +3,8 @@ import * as yup from "yup";
 
 import { prisma } from "@/core/prisma";
 
+import { checkServerSession } from "@/lib/server/session";
+
 type ShareholderInput = {
   userId: string;
   shareholderType: "individual" | "entity";
@@ -15,6 +17,8 @@ const shareholderSchema = yup.object().shape({
 
 export async function POST(request: Request, response: Response) {
   try {
+    await checkServerSession();
+
     const shareholderData: ShareholderInput = await request.json();
     await shareholderSchema.validate(shareholderData, { abortEarly: false });
 
