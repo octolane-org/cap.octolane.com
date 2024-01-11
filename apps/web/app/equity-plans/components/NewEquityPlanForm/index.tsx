@@ -15,9 +15,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 import DateField from "./DateField";
 import EquityRetired from "./EquityRetired";
+import FieldWithType from "./FieldWithType";
 import InitialPlanSize from "./InitialPlanSize";
 import ShareClassSelect from "./ShareClassSelect";
 import TermsOfPlan from "./TermsOfPlan";
@@ -54,6 +56,12 @@ export const newEquityPlanFormSchema = z.object({
   retirement: z.number(),
   retirementType: z.enum(["days", "months", "years"]),
 });
+
+const periodOptions = [
+  { label: "Days", value: "days" },
+  { label: "Months", value: "months" },
+  { label: "Years", value: "years" },
+];
 
 const NewEquityPlanForm = () => {
   const form = useForm<z.infer<typeof newEquityPlanFormSchema>>({
@@ -130,6 +138,29 @@ const NewEquityPlanForm = () => {
           control={form.control}
           name="stockholderApprovalDate"
           label="Stockholder Approval Date"
+        />
+        <FieldWithType
+          label="Repurchase Period"
+          nameOfValue="purchasePeriod"
+          nameOfValueType="purchasePeriodType"
+          control={form.control}
+          typeOptions={periodOptions}
+        />
+        <FormField
+          control={form.control}
+          name="comments"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Comment</FormLabel>
+              <FormControl>
+                <Textarea className="resize-none" {...field} />
+              </FormControl>
+              <FormDescription>
+                You can <span>@mention</span> other users and organizations.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
         />
         <Button type="submit">Submit</Button>
       </form>
