@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import Tile from "@/components/ui/Tile";
 import { Button } from "@/components/ui/button";
 
+import DownloadCaptable from "./components/DownloadCaptable";
 import OptionsTable from "./components/OptionsTable";
 
 const EquityPlansPage = async () => {
@@ -13,9 +14,12 @@ const EquityPlansPage = async () => {
         <Tile>
           <div className="flex items-center justify-between w-full">
             <h1 className="text-2xl font-bold">Cap Table</h1>
-            <Button href={configuration.paths.capTables.new}>
-              Add Signed Options
-            </Button>
+            <div className="flex gap-2">
+              <DownloadCaptable />
+              <Button href={configuration.paths.capTables.new}>
+                Add Signed Options
+              </Button>
+            </div>
           </div>
           <OptionsTable />
         </Tile>
