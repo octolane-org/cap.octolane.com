@@ -27,7 +27,7 @@ export const NewCapTableProvider: React.FCC = ({ children }) => {
       grantType: "ISO",
 
       // Review Pre-filled Details
-      equityPlanId: "",
+      equityPlanId: "eq-1",
       federalExemption: "Rule 701",
       stateExemption: "",
       expirationDate: null,

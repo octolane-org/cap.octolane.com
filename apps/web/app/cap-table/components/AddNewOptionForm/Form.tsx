@@ -1,8 +1,22 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
+import { configuration } from "@/core/constants/configs";
+
 import Tile from "@/components/ui/Tile";
-import { Form, FormItem, FormLabel } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 import { useNewCapTableContext } from "../../new/context/new-cap-table";
 import { NewOptionsFormValues } from "../../new/schema";
@@ -14,6 +28,7 @@ import SwitchField from "./SwitchField";
 import TextField from "./TextField";
 
 const AddNewOptionForm = () => {
+  const router = useRouter();
   const { addOptionForm } = useNewCapTableContext();
 
   if (!addOptionForm) {
@@ -24,9 +39,8 @@ const AddNewOptionForm = () => {
   const exercisePrice = addOptionForm.watch("exercisePrice");
 
   function onSubmit(values: NewOptionsFormValues) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    toast.success("Share Class Created!");
+    router.push(configuration.paths.capTables.all);
   }
 
   return (
@@ -108,6 +122,106 @@ const AddNewOptionForm = () => {
             ]}
           />
         </Tile>
+
+        <Tile>
+          <h3 className="text-lg font-semibold">
+            4. Review Pre-filled Details
+          </h3>
+          <SelectField
+            label="Equity Plan"
+            name="equityPlanId"
+            selectOptions={[
+              {
+                label: "EQ-1",
+                value: "eq-1",
+              },
+            ]}
+          />
+          <SelectField
+            label="Federal Exemption"
+            name="equityPlanId"
+            selectOptions={[
+              {
+                label: "Rule 701",
+                value: "Rule 701",
+              },
+              {
+                label: "Rule 4(a)(2)",
+                value: "Rule 4(a)(2)",
+              },
+              {
+                label: "Reg D - 506(b)",
+                value: "Reg D - 506(b)",
+              },
+              {
+                label: "Reg D - 506(c)",
+                value: "Reg D - 506(c)",
+              },
+              {
+                label: "Reg S",
+                value: "Reg S",
+              },
+              {
+                label: "Non US",
+                value: "Non US",
+              },
+              {
+                label: "Other",
+                value: "Other",
+              },
+            ]}
+          />
+          <FormField
+            control={addOptionForm?.control}
+            name="stateExemption"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>State Exemption</FormLabel>
+                <FormControl>
+                  <Textarea className="resize-none" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <DateField label="Expiration Date" name="expirationDate" />
+          <SelectField
+            label="Currency"
+            name="currency"
+            selectOptions={[
+              {
+                label: "USD ($)",
+                value: "USD",
+              },
+              {
+                label: "CAD ($)",
+                value: "CAD",
+              },
+              {
+                label: "Euro (€)",
+                value: "Euro",
+              },
+            ]}
+          />
+          <div className="flex gap-2">
+            <TextField
+              className="grow"
+              label="Prefix"
+              name="certificatePrefix"
+            />
+            <TextField
+              className="grow"
+              label="Certificate ID"
+              name="certificateNumber"
+            />
+          </div>
+        </Tile>
+
+        <div className="flex justify-end">
+          <Button type="submit" className="w-full max-w-xs">
+            Save and Continue
+          </Button>
+        </div>
       </form>
     </Form>
   );

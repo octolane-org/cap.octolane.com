@@ -13,6 +13,7 @@ import { NewOptionsFormFieldType } from "../../new/types";
 const TextField = ({
   name,
   label,
+  className,
   placeholder = "",
   inputType = "text",
 }: NewOptionsFormFieldType) => {
@@ -23,7 +24,7 @@ const TextField = ({
       control={addOptionForm?.control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={className}>
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <Input
