@@ -1,19 +1,26 @@
 import Container from "@/components/ui/Container";
 import Tile from "@/components/ui/Tile";
 
-import NewEquityPlanForm from "../components/NewEquityPlanForm";
+import AddNewOptionForm from "../components/AddNewOptionForm/Form";
 
-const NewEquityPlanPage = async () => {
+import { NewCapTableProvider } from "./context/new-cap-table";
+
+const NewOptionCapTablePage = async () => {
   return (
     <div className="h-full min-h-svh my-8 flex flex-col items-center gap-8">
-      <Container className="max-w-xl">
-        <Tile>
+      <Container className="max-w-4xl">
+        <Tile className="mb-5">
           <h1 className="text-2xl font-bold">Record Options</h1>
-          <NewEquityPlanForm />
+          <p className="text-xs text-zinc-600">
+            Keep track of options that were issued outside of Pulley.
+          </p>
         </Tile>
+        <NewCapTableProvider>
+          <AddNewOptionForm />
+        </NewCapTableProvider>
       </Container>
     </div>
   );
 };
 
-export default NewEquityPlanPage;
+export default NewOptionCapTablePage;

@@ -6,12 +6,10 @@ import { UseFormReturn, useForm } from "react-hook-form";
 import { NewOptionsFormValues } from "../schema";
 
 type NewCapTableContextType = {
-  addOptionForm: UseFormReturn<NewOptionsFormValues> | null;
+  addOptionForm?: UseFormReturn<NewOptionsFormValues>;
 };
 
-export const NewCapTableContext = createContext<NewCapTableContextType>({
-  addOptionForm: null,
-});
+export const NewCapTableContext = createContext<NewCapTableContextType>({});
 
 export const useNewCapTableContext = () => useContext(NewCapTableContext);
 
