@@ -3,8 +3,6 @@
 import { Transition } from "@headlessui/react";
 import { useEffect, useRef, useState } from "react";
 
-import { Button } from "@/components/ui/button";
-
 const HomepageContent = () => {
   const [tab, setTab] = useState<number>(1);
 
@@ -45,16 +43,9 @@ const HomepageContent = () => {
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6"
               data-aos="fade-right"
             >
-              <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">Streamlined Equity Management</h3>
-                <p className="text-xl text-gray-600">
-                  Harness the efficiency of real-time cap table updates and
-                  error-free equity tracking for your business.
-                </p>
-              </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
-                <Button
+                <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 1
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
@@ -83,8 +74,8 @@ const HomepageContent = () => {
                       <path d="M11.953 4.29a.5.5 0 00-.454-.292H6.14L6.984.62A.5.5 0 006.12.173l-6 7a.5.5 0 00.379.825h5.359l-.844 3.38a.5.5 0 00.864.445l6-7a.5.5 0 00.075-.534z" />
                     </svg>
                   </div>
-                </Button>
-                <Button
+                </button>
+                <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 2
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
@@ -116,8 +107,8 @@ const HomepageContent = () => {
                       />
                     </svg>
                   </div>
-                </Button>
-                <Button
+                </button>
+                <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 3
                       ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
@@ -150,7 +141,7 @@ const HomepageContent = () => {
                       />
                     </svg>
                   </div>
-                </Button>
+                </button>
               </div>
             </div>
 
