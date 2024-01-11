@@ -29,7 +29,7 @@ export default function RootLayout({
           inter.variable,
         )}
       >
-        <Toaster position="top-center" />
+        <Toaster richColors />
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
