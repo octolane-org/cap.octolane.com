@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
+import DateField from "./DateField";
 import EquityRetired from "./EquityRetired";
 import InitialPlanSize from "./InitialPlanSize";
 import ShareClassSelect from "./ShareClassSelect";
@@ -28,7 +29,7 @@ export const newEquityPlanFormSchema = z.object({
   termsOfYears: z.number().min(1).max(100),
   equityRetired: z.number().min(1).max(1000000000),
   boardApprovalDate: z.date(),
-  stakeholderApprovalDate: z.date(),
+  stockholderApprovalDate: z.date(),
   purchasePeriod: z.number(),
   purchasePeriodType: z.enum(["days", "months", "years"]),
   comments: z.string(),
@@ -64,7 +65,7 @@ const NewEquityPlanForm = () => {
       termsOfYears: 10,
       equityRetired: 0,
       boardApprovalDate: new Date(),
-      stakeholderApprovalDate: new Date(),
+      stockholderApprovalDate: new Date(),
       purchasePeriod: 0,
       purchasePeriodType: "days",
       comments: "",
@@ -120,6 +121,16 @@ const NewEquityPlanForm = () => {
         <InitialPlanSize control={form.control} />
         <TermsOfPlan control={form.control} />
         <EquityRetired control={form.control} />
+        <DateField
+          control={form.control}
+          name="boardApprovalDate"
+          label="Board Approval Date"
+        />
+        <DateField
+          control={form.control}
+          name="stockholderApprovalDate"
+          label="Stockholder Approval Date"
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
