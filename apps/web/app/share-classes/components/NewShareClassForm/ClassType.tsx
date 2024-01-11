@@ -10,6 +10,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Switch } from "@/components/ui/switch";
 
 import { newShareClassFormSchema } from ".";
 
@@ -48,6 +49,19 @@ const ClassType = ({
               </RadioGroup>
             </FormControl>
             <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={control}
+        name="excludeFromDilution"
+        render={({ field }) => (
+          <FormItem className="flex flex-col">
+            <FormLabel className="mt-4">Exclude from Fully Diluted</FormLabel>
+            <FormControl>
+              <Switch checked={field.value} onCheckedChange={field.onChange} />
+            </FormControl>
           </FormItem>
         )}
       />
