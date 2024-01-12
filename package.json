@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/octolane-org/cap.octolane.com#readme",
   "devDependencies": {
+    "@types/hast": "^3.0.3",
     "eslint": "8.56.0",
     "prettier": "3.1.1",
     "prettier-plugin-organize-imports": "3.2.4",
