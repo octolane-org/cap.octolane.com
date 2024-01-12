@@ -19,25 +19,26 @@ import { Fragment, useState } from "react";
 import { configuration } from "@/core/constants/configs";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+  {
+    name: "Dashboard",
+    href: configuration.paths.dashbord,
+    icon: HomeIcon,
+  },
   {
     name: "Cap Table",
     href: configuration.paths.capTables.all,
     icon: UsersIcon,
-    current: false,
   },
   {
     name: "Share Class",
     href: configuration.paths.shareClasses.all,
     icon: DocumentDuplicateIcon,
-    current: false,
   },
 
   {
     name: "Equity Plan",
     href: configuration.paths.equityPlans.all,
     icon: ChartPieIcon,
-    current: false,
   },
 ];
 const compliances = [
