@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 
 import EquityPlansTable from "./components/EquityPlansTable";
 
+export const metadata = {
+  title: "Equity Plans",
+};
+
 const EquityPlansPage = async () => {
   return (
     <div className="h-full flex flex-col items-center gap-8">

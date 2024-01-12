@@ -5,6 +5,10 @@ import AddNewOptionForm from "../components/AddNewOptionForm/Form";
 
 import { NewCapTableProvider } from "./context/new-cap-table";
 
+export const metadata = {
+  title: "Add to Cap Table",
+};
+
 const NewOptionCapTablePage = async () => {
   return (
     <div className="h-full flex flex-col gap-8">

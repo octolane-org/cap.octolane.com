@@ -3,7 +3,11 @@ import Tile from "@/components/ui/Tile";
 
 import NewShareClassForm from "../components/NewShareClassForm";
 
-const NewEquityPlanPage = async () => {
+export const metadata = {
+  title: "Add Share Class",
+};
+
+const NewShareClassPage = async () => {
   return (
     <div className="h-full flex flex-col items-center gap-8">
       <Container className="max-w-3xl ml-0">
@@ -19,4 +23,4 @@ const NewEquityPlanPage = async () => {
   );
 };
 
-export default NewEquityPlanPage;
+export default NewShareClassPage;

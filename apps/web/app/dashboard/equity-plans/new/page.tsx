@@ -3,6 +3,10 @@ import Tile from "@/components/ui/Tile";
 
 import NewEquityPlanForm from "../components/NewEquityPlanForm";
 
+export const metadata = {
+  title: "Add Equity Plan",
+};
+
 const NewEquityPlanPage = async () => {
   return (
     <div className="h-full flex flex-col items-center gap-8">

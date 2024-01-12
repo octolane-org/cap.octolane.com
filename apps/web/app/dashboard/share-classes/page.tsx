@@ -6,7 +6,11 @@ import { Button } from "@/components/ui/button";
 
 import ShareClassesTable from "./components/ShareClassesTable";
 
-const EquityPlansPage = async () => {
+export const metadata = {
+  title: "Share Classes",
+};
+
+const ShareClassesPage = async () => {
   return (
     <div className="h-full flex flex-col items-center gap-8">
       <Container>
@@ -24,4 +28,4 @@ const EquityPlansPage = async () => {
   );
 };
 
-export default EquityPlansPage;
+export default ShareClassesPage;

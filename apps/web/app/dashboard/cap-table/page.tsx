@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button";
 import DownloadCaptable from "./components/DownloadCaptable";
 import OptionsTable from "./components/OptionsTable";
 
+export const metadata = {
+  title: "Cap Table",
+};
+
 const CapTablePage = async () => {
   return (
     <div className="h-full flex flex-col items-center gap-8">
