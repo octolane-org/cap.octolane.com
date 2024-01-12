@@ -39,6 +39,9 @@ export const configuration = {
     capTables: { all: "/dashboard/cap-table", new: "cap-table/new" },
     equityPlans: { all: "/dashboard/equity-plans", new: "equity-plans/new" },
     shareClasses: { all: "/dashboard/share-classes", new: "share-classes/new" },
+    valuation401A: "/dashboard/401-a",
+    rule701: "/dashboard/rule-701",
+    settings: "/dashboard/settings",
   },
 };
 

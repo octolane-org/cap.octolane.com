@@ -42,12 +42,24 @@ const navigation = [
   },
 ];
 const compliances = [
-  { id: 1, name: "409A", href: "#", initial: "4", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+  {
+    id: 1,
+    name: "409A",
+    href: configuration.paths.valuation401A,
+    initial: "4",
+    current: false,
+  },
+  // { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
+  // { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
 ];
 const forms = [
-  { id: 1, name: "Rule 701", href: "#", initial: "R", current: false },
+  {
+    id: 1,
+    name: "Rule 701",
+    href: configuration.paths.rule701,
+    initial: "R",
+    current: false,
+  },
 ];
 const userNavigation = [
   { name: "Profile", href: "#" },
@@ -168,36 +180,41 @@ export default function DashboardLayout({
                           Comply & Tax
                         </div>
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          {compliances.map(comply => (
-                            <li key={comply.name}>
-                              <a
-                                href={comply.href}
-                                className={classNames(
-                                  comply.current
-                                    ? "bg-gray-50 text-zinc-600"
-                                    : "text-gray-700 hover:text-zinc-600 hover:bg-gray-50",
-                                  "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
-                                )}
-                              >
-                                <span
+                          {compliances.map(comply => {
+                            const isCurrent = pathname.startsWith(comply.href);
+                            return (
+                              <li key={comply.name}>
+                                <Link
+                                  href={comply.href}
                                   className={classNames(
-                                    comply.current
-                                      ? "text-zinc-600 border-zinc-600"
-                                      : "text-gray-400 border-gray-200 group-hover:border-zinc-600 group-hover:text-zinc-600",
-                                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
+                                    isCurrent
+                                      ? "bg-gray-50 text-zinc-600"
+                                      : "text-gray-700 hover:text-zinc-600 hover:bg-gray-50",
+                                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
                                   )}
                                 >
-                                  {comply.initial}
-                                </span>
-                                <span className="truncate">{comply.name}</span>
-                              </a>
-                            </li>
-                          ))}
+                                  <span
+                                    className={classNames(
+                                      isCurrent
+                                        ? "text-zinc-600 border-zinc-600"
+                                        : "text-gray-400 border-gray-200 group-hover:border-zinc-600 group-hover:text-zinc-600",
+                                      "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
+                                    )}
+                                  >
+                                    {comply.initial}
+                                  </span>
+                                  <span className="truncate">
+                                    {comply.name}
+                                  </span>
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </li>
                       <li className="mt-auto">
-                        <a
-                          href="#"
+                        <Link
+                          href={configuration.paths.settings}
                           className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-zinc-600"
                         >
                           <Cog6ToothIcon
@@ -205,7 +222,7 @@ export default function DashboardLayout({
                             aria-hidden="true"
                           />
                           Settings
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>
@@ -265,31 +282,35 @@ export default function DashboardLayout({
                   Valuations
                 </div>
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {compliances.map(team => (
-                    <li key={team.name}>
-                      <a
-                        href={team.href}
-                        className={classNames(
-                          team.current
-                            ? "bg-gray-50 text-zinc-600"
-                            : "text-gray-700 hover:text-zinc-600 hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
-                        )}
-                      >
-                        <span
+                  {compliances.map(team => {
+                    const isCurrent = pathname.startsWith(team.href);
+
+                    return (
+                      <li key={team.name}>
+                        <Link
+                          href={team.href}
                           className={classNames(
-                            team.current
-                              ? "text-zinc-600 border-zinc-600"
-                              : "text-gray-400 border-gray-200 group-hover:border-zinc-600 group-hover:text-zinc-600",
-                            "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
+                            isCurrent
+                              ? "bg-gray-50 text-zinc-600"
+                              : "text-gray-700 hover:text-zinc-600 hover:bg-gray-50",
+                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
                           )}
                         >
-                          {team.initial}
-                        </span>
-                        <span className="truncate">{team.name}</span>
-                      </a>
-                    </li>
-                  ))}
+                          <span
+                            className={classNames(
+                              isCurrent
+                                ? "text-zinc-600 border-zinc-600"
+                                : "text-gray-400 border-gray-200 group-hover:border-zinc-600 group-hover:text-zinc-600",
+                              "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
+                            )}
+                          >
+                            {team.initial}
+                          </span>
+                          <span className="truncate">{team.name}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
               <li>
@@ -297,36 +318,39 @@ export default function DashboardLayout({
                   IRS & SEC Forms
                 </div>
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {forms.map(form => (
-                    <li key={form.name}>
-                      <a
-                        href={form.href}
-                        className={classNames(
-                          form.current
-                            ? "bg-gray-50 text-zinc-600"
-                            : "text-gray-700 hover:text-zinc-600 hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
-                        )}
-                      >
-                        <span
+                  {forms.map(form => {
+                    const isCurrent = pathname.startsWith(form.href);
+                    return (
+                      <li key={form.name}>
+                        <Link
+                          href={form.href}
                           className={classNames(
-                            form.current
-                              ? "text-zinc-600 border-zinc-600"
-                              : "text-gray-400 border-gray-200 group-hover:border-zinc-600 group-hover:text-zinc-600",
-                            "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
+                            isCurrent
+                              ? "bg-gray-50 text-zinc-600"
+                              : "text-gray-700 hover:text-zinc-600 hover:bg-gray-50",
+                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
                           )}
                         >
-                          {form.initial}
-                        </span>
-                        <span className="truncate">{form.name}</span>
-                      </a>
-                    </li>
-                  ))}
+                          <span
+                            className={classNames(
+                              isCurrent
+                                ? "text-zinc-600 border-zinc-600"
+                                : "text-gray-400 border-gray-200 group-hover:border-zinc-600 group-hover:text-zinc-600",
+                              "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
+                            )}
+                          >
+                            {form.initial}
+                          </span>
+                          <span className="truncate">{form.name}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
               <li className="mt-auto">
-                <a
-                  href="#"
+                <Link
+                  href={configuration.paths.settings}
                   className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-zinc-600"
                 >
                   <Cog6ToothIcon
@@ -334,7 +358,7 @@ export default function DashboardLayout({
                     aria-hidden="true"
                   />
                   Settings
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -415,7 +439,7 @@ export default function DashboardLayout({
                       {userNavigation.map(item => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
-                            <a
+                            <Link
                               href={item.href}
                               className={classNames(
                                 active ? "bg-gray-50" : "",
@@ -423,7 +447,7 @@ export default function DashboardLayout({
                               )}
                             >
                               {item.name}
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                       ))}
