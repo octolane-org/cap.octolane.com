@@ -61,7 +61,7 @@ const HomepageHero = () => {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                A Project by Co-pillot for Sales CRM{" "}
+                A Project by Co-Pillot for Sales CRM{" "}
                 <a
                   className="font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600"
                   href="https://octolane.com"
