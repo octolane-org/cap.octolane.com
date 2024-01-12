@@ -1,0 +1,29 @@
+{
+  "singleQuote": false,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "tabWidth": 2,
+  "semi": true,
+  "useTabs": false,
+  "printWidth": 80,
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "@/core",
+    "@/components",
+    "@/lib",
+    "@/content",
+    "@/content",
+    "@/utils",
+    "@/constants",
+    "@/types",
+    ".svg",
+    "^../(.*)$",
+    "^[./]",
+    "(?=./styles.module.scss)"
+  ],
+  "importOrderSeparation": true
+}

@@ -1,0 +1,151 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // relationMode = "prisma"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          String?
+
+  company     Company?      @relation(fields: [companyId], references: [id])
+  companyId   String?
+  accounts    Account[]
+  sessions    Session[]
+  tokens      Token[]
+  createdAt   DateTime      @default(now())
+  Shareholder Shareholder[]
+
+  @@index([companyId])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Token {
+  id         String    @id @default(cuid())
+  name       String
+  hashedKey  String    @unique
+  partialKey String
+  expires    DateTime?
+  lastUsed   DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+
+  @@index([userId])
+}
+
+model Company {
+  id                String             @id @default(cuid())
+  name              String
+  industry          String?
+  incorporationDate DateTime?
+  users             User[]
+  equityInstruments EquityInstrument[]
+  capTables         CapTable[]
+}
+
+model EquityInstrument {
+  id            Int            @id @default(autoincrement())
+  type          String
+  totalIssued   Int
+  company       Company        @relation(fields: [companyId], references: [id])
+  companyId     String
+  shareholdings Shareholding[]
+
+  @@index([companyId])
+}
+
+model Shareholder {
+  id              Int            @id @default(autoincrement())
+  user            User           @relation(fields: [userId], references: [id])
+  userId          String
+  shareholderType String
+  shareholdings   Shareholding[]
+
+  @@index([userId])
+}
+
+model Shareholding {
+  id              Int              @id @default(autoincrement())
+  shareholder     Shareholder      @relation(fields: [shareholderId], references: [id])
+  shareholderId   Int
+  instrument      EquityInstrument @relation(fields: [instrumentId], references: [id])
+  instrumentId    Int
+  sharesOwned     Int
+  acquisitionDate DateTime
+  transactions    Transaction[]
+
+  @@index([shareholderId])
+  @@index([instrumentId])
+}
+
+model Transaction {
+  id                Int          @id @default(autoincrement())
+  shareholding      Shareholding @relation(fields: [shareholdingId], references: [id])
+  shareholdingId    Int
+  transactionDate   DateTime
+  sharesTransferred Int
+  transactionType   String
+
+  @@index([shareholdingId])
+}
+
+model CapTable {
+  id           Int      @id @default(autoincrement())
+  company      Company  @relation(fields: [companyId], references: [id])
+  companyId    String
+  snapshotDate DateTime
+  // Additional fields as needed
+
+  @@index([companyId])
+}
