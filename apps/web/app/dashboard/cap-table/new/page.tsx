@@ -5,10 +5,14 @@ import AddNewOptionForm from "../components/AddNewOptionForm/Form";
 
 import { NewCapTableProvider } from "./context/new-cap-table";
 
+export const metadata = {
+  title: "Add to Cap Table",
+};
+
 const NewOptionCapTablePage = async () => {
   return (
-    <div className="h-full min-h-svh my-8 flex flex-col items-center gap-8">
-      <Container className="max-w-4xl">
+    <div className="h-full flex flex-col gap-8">
+      <Container className="max-w-3xl ml-0">
         <Tile className="mb-5">
           <h1 className="text-2xl font-bold">Record Options</h1>
           <p className="text-xs text-zinc-600">
