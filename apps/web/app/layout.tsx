@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Toaster richColors />
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
+          <Analytics />
         </div>
       </body>
     </html>
