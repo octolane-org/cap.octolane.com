@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import { configuration } from "@/core/constants/configs";
+
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 
@@ -34,11 +36,8 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Button
-                  target="_blank"
-                  href="https://jl1zzmzlaee.typeform.com/to/Fbf4XlNu"
-                >
-                  Sign up
+                <Button href={configuration.paths.dashbord}>
+                  Live Demo
                   <svg
                     className="w-3 h-3 fill-current text-gray-400 shrink-0 ml-2 -mr-1"
                     viewBox="0 0 12 12"

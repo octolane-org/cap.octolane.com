@@ -14,24 +14,26 @@ import {
 } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
 
+import { configuration } from "@/core/constants/configs";
+
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
   {
     name: "Cap Table",
-    href: "/dashboard/cap-table",
+    href: configuration.paths.capTables.all,
     icon: UsersIcon,
     current: false,
   },
   {
     name: "Share Class",
-    href: "/dashboard/share-classes",
+    href: configuration.paths.shareClasses.all,
     icon: DocumentDuplicateIcon,
     current: false,
   },
 
   {
     name: "Equity Plan",
-    href: "/dashboard/equity-plans",
+    href: configuration.paths.equityPlans.all,
     icon: ChartPieIcon,
     current: false,
   },
