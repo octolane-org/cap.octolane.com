@@ -16,17 +16,22 @@ import { Fragment, useState } from "react";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Cap Table", href: "#", icon: UsersIcon, current: false },
+  {
+    name: "Cap Table",
+    href: "/dashboard/cap-table",
+    icon: UsersIcon,
+    current: false,
+  },
   {
     name: "Share Class",
-    href: "#",
+    href: "/dashboard/share-classes",
     icon: DocumentDuplicateIcon,
     current: false,
   },
 
   {
     name: "Equity Plan",
-    href: "#",
+    href: "/dashboard/equity-plans",
     icon: ChartPieIcon,
     current: false,
   },
@@ -48,7 +53,11 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -418,7 +427,7 @@ export default function Example() {
 
           <main className="py-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              Dashboard
+              {children}
             </div>
           </main>
         </div>

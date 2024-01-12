@@ -33,12 +33,12 @@ export const configuration = {
   openaiApiKey: process.env.OPENAI_API_KEY,
   youApiKey: process.env.YOU_API as string,
   paths: {
-    dashbord: "/dashboard",
+    dashbord: "/",
     signin: "/signin",
     signup: "/signup",
-    capTables: { all: "/cap-table", new: "/cap-table/new" },
-    equityPlans: { all: "/equity-plans", new: "/equity-plans/new" },
-    shareClasses: { all: "/share-classes", new: "/share-classes/new" },
+    capTables: { all: "/cap-table", new: "cap-table/new" },
+    equityPlans: { all: "/equity-plans", new: "equity-plans/new" },
+    shareClasses: { all: "/share-classes", new: "share-classes/new" },
   },
 };
 

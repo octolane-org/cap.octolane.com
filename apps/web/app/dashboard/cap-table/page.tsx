@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import DownloadCaptable from "./components/DownloadCaptable";
 import OptionsTable from "./components/OptionsTable";
 
-const EquityPlansPage = async () => {
+const CapTablePage = async () => {
   return (
     <div className="h-full min-h-svh my-8 flex flex-col items-center gap-8">
       <Container className="max-w-4xl">
@@ -28,4 +28,4 @@ const EquityPlansPage = async () => {
   );
 };
 
-export default EquityPlansPage;
+export default CapTablePage;

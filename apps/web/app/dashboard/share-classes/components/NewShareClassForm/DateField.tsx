@@ -20,7 +20,7 @@ import {
 
 import { cn } from "@/lib/utils/common";
 
-import { newShareClassFormSchema } from "./";
+import { newShareClassFormSchema } from ".";
 
 const DateField = ({
   control,
