@@ -8,7 +8,7 @@ import EquityPlansTable from "./components/EquityPlansTable";
 
 const EquityPlansPage = async () => {
   return (
-    <div className="h-full min-h-svh my-8 flex flex-col items-center gap-8">
+    <div className="h-full flex flex-col items-center gap-8">
       <Container>
         <Tile>
           <div className="flex items-center justify-between w-full">
