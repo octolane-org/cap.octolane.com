@@ -36,7 +36,7 @@ export default function ModalVideo({
           data-aos="zoom-y-out"
           data-aos-delay="450"
         >
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center border shadow-lg">
             <Image
               src={thumb}
               width={thumbWidth}

@@ -25,14 +25,14 @@ const AboutPage = () => {
         </Link>
         <Link
           className="flex justify-between items-center pb-3 border-b"
-          href={configuration.paths.equityPlans.all}
+          href={configuration.paths.shareClasses.all}
         >
           Share Classes
           <ArrowTopRightOnSquareIcon className="h-5 w-5" />
         </Link>
         <Link
           className="flex justify-between items-center pb-3"
-          href={configuration.paths.equityPlans.all}
+          href={configuration.paths.capTables.all}
         >
           Cap Table
           <ArrowTopRightOnSquareIcon className="h-5 w-5" />
