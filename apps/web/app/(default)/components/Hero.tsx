@@ -46,7 +46,6 @@ const HomepageHero = () => {
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
-         
             <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
               Open Source Cap Table Manager
             </h1>{" "}
@@ -56,7 +55,7 @@ const HomepageHero = () => {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                A Project by Co-Pillot for Sales CRM{" "}
+                A Project by Co-Pilot for Sales CRM{" "}
                 <a
                   className="font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600"
                   href="https://octolane.com"
