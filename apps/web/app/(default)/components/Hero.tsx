@@ -1,6 +1,9 @@
+import VideoThumb from "@/public/images/captable.gif";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Button } from "@/components/ui/button";
 
-import VideoThumb from "@/public/images/hero-image-01.svg";
+import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import ModalVideo from "./ModalVideo";
 
@@ -52,15 +55,15 @@ const HomepageHero = () => {
             <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
               Open Source Cap Table Manager
             </h1>{" "}
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto mt-4">
               <p
                 className="text-xl text-gray-600 mb-8"
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Powered by all in one CRM{" "}
+                A Project by Co-pillot for Sales CRM{" "}
                 <a
-                  className="font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-zinc-600 to-slate-900"
+                  className="font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600"
                   href="https://octolane.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,22 +71,41 @@ const HomepageHero = () => {
                   Octolane AI
                 </a>
               </p>
-              <Button
-                href="https://jl1zzmzlaee.typeform.com/to/Fbf4XlNu"
-                target="_blank"
-                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
-                data-aos="zoom-y-out"
-                data-aos-delay="300"
-              >
-                Get Access Fast
-              </Button>
+              <div className="flex justify-center gap-x-6">
+                <Button
+                  href="https://github.com/octolane-org/cap.octolane.com"
+                  target="_blank"
+                  className="max-w-xs  sm:max-w-none sm:flex sm:justify-center"
+                  data-aos="zoom-y-out"
+                  data-aos-delay="300"
+                >
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    className="text-white h-5 w-5 mr-2"
+                  />
+                  GitHub
+                </Button>
+                <Button
+                  href="https://discord.gg/UWXtkdxc"
+                  target="_blank"
+                  className="max-w-xs  sm:max-w-none sm:flex sm:justify-center bg-[#404eed]"
+                  data-aos="zoom-y-out"
+                  data-aos-delay="300"
+                >
+                  <FontAwesomeIcon
+                    icon={faDiscord}
+                    className="text-white h-5 w-5 mr-2"
+                  />
+                  Discord
+                </Button>
+              </div>
             </div>
           </div>
 
           {/* Hero image */}
           <ModalVideo
             thumb={VideoThumb}
-            thumbWidth={578}
+            thumbWidth={800}
             thumbHeight={432}
             thumbAlt="Follow progress on Twitter"
             video="Follow progress on Twitter"
