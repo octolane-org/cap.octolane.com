@@ -1,6 +1,6 @@
 ## Introduction
 
-cap.octolane.com is the open-source cap table management infrastructure for all founders and investors.
+cap.octolane.com is the open-source cap table management infrastructure for all founders and investors. For cloud ☁️ hosted solution to this Cap Table Management, [register here 👉](https://jl1zzmzlaee.typeform.com/to/Fbf4XlNu).
 
 ## Features
 
