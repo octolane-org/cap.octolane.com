@@ -14,3 +14,13 @@ export const checkServerSession = async () => {
 
   return session;
 };
+
+export const getCurrentUser = async () => {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session || !session.user) {
+    return null;
+  }
+
+  return session.user;
+};
