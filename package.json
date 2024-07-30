@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/octolane-org/cap.octolane.com#readme",
   "devDependencies": {
-    "@types/hast": "^3.0.3",
-    "eslint": "8.56.0",
-    "prettier": "3.1.1",
-    "prettier-plugin-organize-imports": "3.2.4",
-    "prettier-plugin-tailwindcss": "0.5.11",
-    "turbo": "1.11.3"
+    "@types/hast": "^3.0.4",
+    "eslint": "9.8.0",
+    "prettier": "3.3.3",
+    "prettier-plugin-organize-imports": "4.0.0",
+    "prettier-plugin-tailwindcss": "0.6.5",
+    "turbo": "2.0.9"
   },
   "packageManager": "pnpm@8.6.10",
   "dependencies": {
-    "husky": "8.0.3"
+    "husky": "9.1.4"
   }
 }
